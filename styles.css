@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+  
+#movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    justify-content: center;
+}
+  
+.movie-item {
+    width: 150px;
+    text-align: center;
+}
+  
+.movie-item img {
+    width: 100%;
+    border-radius: 8px;
+}
