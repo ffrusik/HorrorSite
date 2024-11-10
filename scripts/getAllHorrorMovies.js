@@ -1,4 +1,3 @@
-const apiKey = '74caefcd2cdb0278305d13b79d556f87';
 const baseUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_average.desc&vote_count.gte=100`;
 const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
