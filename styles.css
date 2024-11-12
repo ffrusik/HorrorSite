@@ -18,6 +18,14 @@ body {
     width: 150px;
     text-align: center;
 }
+
+.movie-list div div {
+    display: none;
+}
+
+.movie-list div:hover div {
+    display: block;
+}
   
 .movie-item img {
     width: 100%;

@@ -26,6 +26,10 @@ const fetchMovies = async () => {
                 const movieTitle = document.createElement('p');
                 movieTitle.textContent = movie.title;
 
+                const movieDescriptionItem = document.createElement('div');
+                const movieDescription = document.createElement('p');
+                movieDescription.textContent = movie.overview;
+
                 const movieImage = document.createElement('img');
                 movieImage.src = `${imageBaseUrl}${movie.poster_path}`;
                 movieImage.alt = `${movie.title} poster`;
@@ -36,6 +40,9 @@ const fetchMovies = async () => {
                 movieItem.appendChild(movieImage);
                 movieItem.appendChild(movieTitle);
                 movieList.appendChild(movieItem);
+
+                movieItem.appendChild(movieDescriptionItem);
+                movieDescriptionItem.appendChild(movieDescription);
             });
 
             page++;
