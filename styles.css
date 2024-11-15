@@ -3,6 +3,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0;
+    background-color: rgb(75, 75, 180);
 }
   
 #movie-list {
@@ -17,6 +18,14 @@ body {
 .movie-item {
     width: 150px;
     text-align: center;
+}
+
+.movie-list div div {
+    display: none;
+}
+
+.movie-list div:hover div {
+    display: block;
 }
   
 .movie-item img {
