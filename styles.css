@@ -10,6 +10,8 @@ body {
     margin: 0;
     background-image: url('moviebg.jpg');
     color: white;
+    font-family: 'Horror Font', sans-serif; 
+    margin: 0;
 }
 
 .header {
@@ -57,8 +59,6 @@ body {
     font-family: 'Horror Font', sans-serif;
 }
 
-
-
 .hamburger {
     display: none;
     flex-direction: column;
@@ -94,7 +94,6 @@ body {
 }
 
 * {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
 .mySlides {display: none}
 img {vertical-align: middle;}
 
@@ -183,7 +182,7 @@ img {vertical-align: middle;}
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+  .prev, .next, .text {font-size: 11px}
 }
   
 #movie-list {
@@ -200,20 +199,35 @@ img {vertical-align: middle;}
     text-align: center;
 }
 
-.movie-list div div {
-    display: none;
+.movie-item img {
+    width: 100%;
+    border-radius: 8px;
 }
 
-.movie-list div:hover div {
+.movie-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+#movie-list .movie-item:hover div {
     display: block;
 }
-  
-.movie-item img {
-    width: 100%;
-    border-radius: 8px;
-}
 
-.movie-item img {
-    width: 100%;
-    border-radius: 8px;
+#movie-list .movie-item div {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 80%;
+    height: 80%;
+    background: rgba(20, 19, 19, 0.95);
+    color: white;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    text-align: center;
+    border-radius: 15px;
+    overflow-y: auto;
+    font-size: 1.2rem;
 }
