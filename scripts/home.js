@@ -3,7 +3,7 @@ const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
 const imageDescriptionBaseUrl = 'https://image.tmdb.org/t/p/w1280';
 
 const fetchMovies = async () => {
-    const movieList = document.getElementById('movie-list');
+    const movieList = document.getElementById('movie-list-home');
     movieList.innerHTML = '';
 
     let page = 1;
@@ -22,7 +22,7 @@ const fetchMovies = async () => {
 
             data.results.forEach(movie => {
                 const movieItem = document.createElement('div');
-                movieItem.classList.add('movie-item');
+                movieItem.classList.add('movie-item-home');
 
                 const movieTitle = document.createElement('p');
                 movieTitle.textContent = movie.title;
