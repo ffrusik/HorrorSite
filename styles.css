@@ -220,7 +220,7 @@ img {vertical-align: middle;}
     border-radius: 8px;
 }
 
-#movie-list .movie-item:hover div {
+#movie-list .movie-item:active div {
     display: block;
 }
 
@@ -241,4 +241,11 @@ img {vertical-align: middle;}
     border-radius: 15px;
     overflow-y: auto;
     font-size: 1.2rem;
+}
+
+.movie-img-description {
+  width: 1100px;
+  height: 619px;
+  object-fit: cover;
+  margin: 0 auto 0 auto;
 }
