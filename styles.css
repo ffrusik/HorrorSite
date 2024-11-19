@@ -8,7 +8,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0;
-    background-image: url('/imgs/moviebg.jpg');
+    background-image: url('imgs/moviebg.jpg');
     color: white;
     font-family: 'Horror Font', sans-serif; 
     margin: 0;
