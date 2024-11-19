@@ -27,6 +27,10 @@ const fetchMovies = async () => {
                 const movieTitle = document.createElement('p');
                 movieTitle.textContent = movie.title;
 
+                const movieTitleDescription = document.createElement('p');
+                movieTitleDescription.textContent = movie.title;
+                movieTitleDescription.classList.add('movie-title-description');
+
                 const movieDescriptionItem = document.createElement('div');
                 const movieDescription = document.createElement('p');
                 movieDescription.textContent = movie.overview;
@@ -40,8 +44,13 @@ const fetchMovies = async () => {
                 };
 
                 const movieImageDescription = document.createElement('img');
-                movieImageDescription.src = `${imageDescriptionBaseUrl}${movie.backdrop_path}`;
-                // add if there is no backdrop_path just add poster_path and it will be cropped in css
+
+                if (movie.backdrop_path == null) {
+                    movieImageDescription.src = `${imageDescriptionBaseUrl}${movie.poster_path}`;
+                } else {
+                    movieImageDescription.src = `${imageDescriptionBaseUrl}${movie.backdrop_path}`;
+                }
+
                 movieImageDescription.classList.add('movie-img-description');
 
                 movieItem.appendChild(movieImage);
@@ -49,6 +58,7 @@ const fetchMovies = async () => {
                 movieList.appendChild(movieItem);
 
                 movieItem.appendChild(movieDescriptionItem);
+                movieDescriptionItem.appendChild(movieTitleDescription);
                 movieDescriptionItem.appendChild(movieImageDescription);
                 movieDescriptionItem.appendChild(movieDescription);
             });
