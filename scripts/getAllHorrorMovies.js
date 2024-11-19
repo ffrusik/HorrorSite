@@ -1,5 +1,6 @@
 const baseUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_average.desc&vote_count.gte=100`;
 const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
+const imageDescriptionBaseUrl = 'https://image.tmdb.org/t/p/w1280';
 
 const fetchMovies = async () => {
     const movieList = document.getElementById('movie-list');
@@ -38,11 +39,17 @@ const fetchMovies = async () => {
                     movieImage.alt = 'Image not available';
                 };
 
+                const movieImageDescription = document.createElement('img');
+                movieImageDescription.src = `${imageDescriptionBaseUrl}${movie.backdrop_path}`;
+                // add if there is no backdrop_path just add poster_path and it will be cropped in css
+                movieImageDescription.classList.add('movie-img-description');
+
                 movieItem.appendChild(movieImage);
                 movieItem.appendChild(movieTitle);
                 movieList.appendChild(movieItem);
 
                 movieItem.appendChild(movieDescriptionItem);
+                movieDescriptionItem.appendChild(movieImageDescription);
                 movieDescriptionItem.appendChild(movieDescription);
             });
 
