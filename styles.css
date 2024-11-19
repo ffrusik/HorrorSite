@@ -8,7 +8,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0;
-    background-image: url('/imgs/moviebg.jpg');
+    background-image: url('imgs/moviebg.jpg');
     color: white;
     font-family: 'Horror Font', sans-serif; 
     margin: 0;
@@ -17,6 +17,7 @@ body {
 .header {
     background-color: #373737;
     width: 100%;
+    height: 100px;
 }
 
 .navbar {
@@ -24,10 +25,17 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    border-radius: 4px;
+    height: 100px;
+}
+.navbar .nav-menu a {
+  border-radius: 4px;
+  padding: 12px;
+  background-color: #242424;
 }
 
 .navbar .nav-menu a:hover{
-    background-color: #4a4444;
+    background-color: firebrick;
     padding: 12px;
     border-radius: 4px;
 }
@@ -55,8 +63,11 @@ body {
 }
 
 .title1 {
-    color: white;
+    color: rgb(170, 12, 12);
     font-family: 'Horror Font', sans-serif;
+    letter-spacing: 2px;
+    font-size: xx-large;
+
 }
 
 .hamburger {
