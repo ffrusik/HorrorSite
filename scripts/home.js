@@ -8,6 +8,11 @@ const fetchMovies = async () => {
 
     let page = 1;
     let totalPages = 1; // temp value
+
+    let mostPopularFilm = 0;
+    let mostUnderratedFilm = 0;
+    let mostRatedFilm = 0;
+    let mostOverhypedFilm = 0;
   
     try {
         while (page <= totalPages) {
@@ -18,49 +23,37 @@ const fetchMovies = async () => {
             const data = await res.json();
 
             totalPages = data.total_pages;
-            console.log(totalPages);
 
             data.results.forEach(movie => {
-                const movieItem = document.createElement('div');
-                movieItem.classList.add('movie-item-home');
 
-                const movieTitle = document.createElement('p');
-                movieTitle.textContent = movie.title;
-
-                const movieTitleDescription = document.createElement('p');
-                movieTitleDescription.textContent = movie.title;
-                movieTitleDescription.classList.add('movie-title-description');
-
-                const movieDescriptionItem = document.createElement('div');
-                const movieDescription = document.createElement('p');
-                movieDescription.textContent = movie.overview;
-                // movieDescription.style.display = "none";
-
-                const movieImage = document.createElement('img');
-                movieImage.src = `${imageBaseUrl}${movie.poster_path}`;
-                movieImage.alt = `${movie.title} poster`;
-                movieImage.onerror = () => {
-                    movieImage.alt = 'Image not available';
-                };
-
-                const movieImageDescription = document.createElement('img');
-
-                if (movie.backdrop_path == null) {
-                    movieImageDescription.src = `${imageDescriptionBaseUrl}${movie.poster_path}`;
-                } else {
-                    movieImageDescription.src = `${imageDescriptionBaseUrl}${movie.backdrop_path}`;
+                if (movie.popularity >= 100 && mostPopularFilm == 0) {
+                    const movieTop = document.createElement('p');
+                    movieTop.classList.add('movie-top')
+                    movieTop.textContent = 'Most popular horror movie';
+                    addMovie(movie, movieTop);
+                    mostPopularFilm = 1;
                 }
-
-                movieImageDescription.classList.add('movie-img-description');
-
-                movieItem.appendChild(movieImage);
-                movieItem.appendChild(movieTitle);
-                movieList.appendChild(movieItem);
-
-                movieItem.appendChild(movieDescriptionItem);
-                movieDescriptionItem.appendChild(movieTitleDescription);
-                movieDescriptionItem.appendChild(movieImageDescription);
-                movieDescriptionItem.appendChild(movieDescription);
+                else if (movie.popularity <= 10 && mostUnderratedFilm == 0 && movie.vote_average >= 7) {
+                    const movieTop = document.createElement('p');
+                    movieTop.classList.add('movie-top')
+                    movieTop.textContent = 'Most underrated horror movie';
+                    addMovie(movie, movieTop);
+                    mostUnderratedFilm = 1;
+                }
+                else if (movie.vote_average >= 8.2 && mostRatedFilm == 0) {
+                    const movieTop = document.createElement('p');
+                    movieTop.classList.add('movie-top')
+                    movieTop.textContent = 'Most rated horror movie';
+                    addMovie(movie, movieTop);
+                    mostRatedFilm = 1;
+                }
+                else if (movie.vote_average <= 7 && mostOverhypedFilm == 0 && movie.popularity >= 95) {
+                    const movieTop = document.createElement('p');
+                    movieTop.classList.add('movie-top')
+                    movieTop.textContent = 'Most overhyped horror movie';
+                    addMovie(movie, movieTop);
+                    mostOverhypedFilm = 1;
+                }
             });
 
             page++;
@@ -70,6 +63,73 @@ const fetchMovies = async () => {
         console.error('Error fetching movies', err);
     }
 }
+
+function addMovie(movieParam, movieTopParam) {
+    const movieList = document.getElementById('movie-list-home');
+
+    const movieItem = document.createElement('div');
+    movieItem.classList.add('movie-item-home');
+
+    const movieTitle = document.createElement('p');
+    movieTitle.classList.add('movie-title')
+    movieTitle.textContent = movieParam.title;
+
+    const movieTitleDescription = document.createElement('p');
+    movieTitleDescription.textContent = movieParam.title;
+    movieTitleDescription.classList.add('movie-title-description');
+
+    const movieDescriptionItem = document.createElement('div');
+    const movieDescription = document.createElement('p');
+    movieDescription.textContent = movieParam.overview;
+
+    const movieImage = document.createElement('img');
+    movieImage.src = `${imageBaseUrl}${movieParam.poster_path}`;
+    movieImage.alt = `${movieParam.title} poster`;
+    movieImage.onerror = () => {
+        movieImage.alt = 'Image not available';
+    };
+
+    const movieImageDescription = document.createElement('img');
+
+    movieImageDescription.src = movieParam.backdrop_path
+        ? `${imageDescriptionBaseUrl}${movieParam.backdrop_path}`
+        : `${imageDescriptionBaseUrl}${movieParam.poster_path}`;
+    movieImageDescription.classList.add('movie-img-description');
+
+    movieItem.appendChild(movieTopParam);
+    movieItem.appendChild(movieImage);
+    movieItem.appendChild(movieTitle);
+    movieList.appendChild(movieItem);
+
+    movieItem.appendChild(movieDescriptionItem);
+    movieDescriptionItem.appendChild(movieTitleDescription);
+    movieDescriptionItem.appendChild(movieImageDescription);
+    movieDescriptionItem.appendChild(movieDescription);
+
+    movieImage.addEventListener('click', () => {
+        movieDescriptionItem.style.display = 'block';
+        movieDescriptionItem.style.opacity = '1';
+    });
+
+    document.addEventListener('click', (event) => {
+        if (
+            !movieDescriptionItem.contains(event.target) &&
+            !movieImage.contains(event.target)
+        ) {
+            movieDescriptionItem.style.display = 'none';
+            movieDescriptionItem.style.opacity = '0';
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            movieDescriptionItem.style.display = 'none';
+            movieDescriptionItem.style.opacity = '0';
+            document.body.classList.remove('no-scroll');
+        }
+    });
+}
+
   
 // Call the function to fetch and display movies
 fetchMovies();

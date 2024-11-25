@@ -1,4 +1,4 @@
-const baseUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_average.desc&vote_count.gte=1000`;
+const baseUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_average.desc&vote_count.gte=2000`;
 const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
 const imageDescriptionBaseUrl = 'https://image.tmdb.org/t/p/w1280';
 
@@ -61,6 +61,29 @@ const fetchMovies = async () => {
                 movieDescriptionItem.appendChild(movieTitleDescription);
                 movieDescriptionItem.appendChild(movieImageDescription);
                 movieDescriptionItem.appendChild(movieDescription);
+
+                movieImage.addEventListener('click', () => {
+                    movieDescriptionItem.style.display = 'block';
+                    movieDescriptionItem.style.opacity = '1';
+                });
+            
+                document.addEventListener('click', (event) => {
+                    if (
+                        !movieDescriptionItem.contains(event.target) &&
+                        !movieImage.contains(event.target)
+                    ) {
+                        movieDescriptionItem.style.display = 'none';
+                        movieDescriptionItem.style.opacity = '0';
+                    }
+                });
+            
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape') {
+                        movieDescriptionItem.style.display = 'none';
+                        movieDescriptionItem.style.opacity = '0';
+                        document.body.classList.remove('no-scroll');
+                    }
+                });
             });
 
             page++;

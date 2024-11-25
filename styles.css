@@ -296,50 +296,58 @@ img {vertical-align: middle;}
     border-radius: 8px;
 }
 
-#movie-list .movie-item:active div {
-    display: block;
+#movie-list .movie-item div.show {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 #movie-list .movie-item div {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    width: 80%;
-    height: 80%;
-    background: rgba(20, 19, 19, 0.95);
-    color: white;
-    padding: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    z-index: 100;
-    text-align: center;
-    border-radius: 15px;
-    overflow-y: auto;
-    font-size: 1.2rem;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 80%;
+  height: 80%;
+  background: rgba(20, 19, 19, 0.95);
+  color: white;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  text-align: center;
+  border-radius: 15px;
+  overflow-y: auto;
+  font-size: 1.2rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
 }
 
-#movie-list-home .movie-item-home:active div {
-    display: block;
+#movie-list-home .movie-item-home div.show {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 #movie-list-home .movie-item-home div {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    width: 80%;
-    height: 80%;
-    background: rgba(20, 19, 19, 0.95);
-    color: white;
-    padding: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    z-index: 100;
-    text-align: center;
-    border-radius: 15px;
-    overflow-y: auto;
-    font-size: 1.2rem;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 80%;
+  height: 80%;
+  background: rgba(20, 19, 19, 0.95);
+  color: white;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  text-align: center;
+  border-radius: 15px;
+  overflow-y: auto;
+  font-size: 1.2rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
 }
 
 .movie-img-description {
@@ -349,5 +357,13 @@ img {vertical-align: middle;}
 }
 
 .movie-title-description {
+  font-size: 150%;
+}
+
+.movie-top {
+  font-size: 150%;
+}
+
+.movie-title {
   font-size: 150%;
 }
