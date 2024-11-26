@@ -2,6 +2,11 @@ const baseUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${window.ap
 const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
 const imageDescriptionBaseUrl = 'https://image.tmdb.org/t/p/w1280';
 
+const baseUrlPopular = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=popularity.desc&vote_count.gte=9000`;
+const baseUrlUnderrated = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=popularity.asc&vote_count.gte=1000`;
+const baseUrlRated = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_average.desc&vote_count.gte=1000`;
+const baseUrlOverhyped = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=popularity.asc&vote_count.gte=1000`;
+
 const fetchMovies = async () => {
     const movieList = document.getElementById('movie-list-home');
     movieList.innerHTML = '';
@@ -13,55 +18,101 @@ const fetchMovies = async () => {
     let mostUnderratedFilm = 0;
     let mostRatedFilm = 0;
     let mostOverhypedFilm = 0;
-  
+
     try {
-        while (page <= totalPages) {
-            const url = `${baseUrl}&page=${page}`;
-            const res = await fetch(url);
-            if (!res.ok) throw new Error('Network response was not okay ' + res.statusText);
+        // Initialize page for looping
+        let page = 1;
+        let totalPagesPopular = 1;
+        let totalPagesUnderrated = 1;
+        let totalPagesRated = 1;
+        let totalPagesOverhyped = 1;
 
-            const data = await res.json();
+        while (page <= totalPagesPopular || page <= totalPagesUnderrated || page <= totalPagesRated || page <= totalPagesOverhyped) {
 
-            totalPages = data.total_pages;
+            // Fetch popular movies
+            const urlPopular = `${baseUrlPopular}&page=${page}`;
+            const resPopular = await fetch(urlPopular);
+            if (!resPopular.ok) throw new Error('Network response was not okay ' + resPopular.statusText);
+            const dataPopular = await resPopular.json();
 
-            data.results.forEach(movie => {
+            totalPagesPopular = dataPopular.total_pages;
 
-                if (movie.popularity >= 100 && mostPopularFilm == 0) {
+            dataPopular.results.forEach(movie => {
+
+                if (mostPopularFilm == 0) {
                     const movieTop = document.createElement('p');
-                    movieTop.classList.add('movie-top')
+                    movieTop.classList.add('movie-top');
                     movieTop.textContent = 'Most popular horror movie';
                     addMovie(movie, movieTop);
                     mostPopularFilm = 1;
                 }
-                else if (movie.popularity <= 10 && mostUnderratedFilm == 0 && movie.vote_average >= 7) {
+                
+            });
+
+            // Fetch underrated movies
+            const urlUnderrated = `${baseUrlUnderrated}&page=${page}`;
+            const resUnderrated = await fetch(urlUnderrated);
+            if (!resUnderrated.ok) throw new Error('Network response was not okay ' + resUnderrated.statusText);
+            const dataUnderrated = await resUnderrated.json();
+
+            totalPagesUnderrated = dataUnderrated.total_pages;
+
+            dataUnderrated.results.forEach(movie => {
+                if (movie.vote_average >= 7 && mostUnderratedFilm == 0) {
                     const movieTop = document.createElement('p');
-                    movieTop.classList.add('movie-top')
+                    movieTop.classList.add('movie-top');
                     movieTop.textContent = 'Most underrated horror movie';
                     addMovie(movie, movieTop);
                     mostUnderratedFilm = 1;
                 }
-                else if (movie.vote_average >= 8.2 && mostRatedFilm == 0) {
+            });
+
+            // Fetch rated movies
+            const urlRated = `${baseUrlRated}&page=${page}`;
+            const resRated = await fetch(urlRated);
+            if (!resRated.ok) throw new Error('Network response was not okay ' + resRated.statusText);
+            const dataRated = await resRated.json();
+
+            totalPagesRated = dataRated.total_pages;
+
+            dataRated.results.forEach(movie => {
+
+                if (mostRatedFilm == 0) {
                     const movieTop = document.createElement('p');
-                    movieTop.classList.add('movie-top')
+                    movieTop.classList.add('movie-top');
                     movieTop.textContent = 'Most rated horror movie';
                     addMovie(movie, movieTop);
                     mostRatedFilm = 1;
                 }
-                else if (movie.vote_average <= 7 && mostOverhypedFilm == 0 && movie.popularity >= 95) {
+                
+            });
+
+            // Fetch overhyped movies
+            const urlOverhyped = `${baseUrlOverhyped}&page=${page}`;
+            const resOverhyped = await fetch(urlOverhyped);
+            if (!resOverhyped.ok) throw new Error('Network response was not okay ' + resOverhyped.statusText);
+            const dataOverhyped = await resOverhyped.json();
+
+            totalPagesOverhyped = dataOverhyped.total_pages;
+
+            dataOverhyped.results.forEach(movie => {
+                if (movie.vote_average <= 6 && mostOverhypedFilm == 0) {
                     const movieTop = document.createElement('p');
-                    movieTop.classList.add('movie-top')
+                    movieTop.classList.add('movie-top');
                     movieTop.textContent = 'Most overhyped horror movie';
                     addMovie(movie, movieTop);
                     mostOverhypedFilm = 1;
                 }
             });
 
+            // Increment page for the next iteration
             page++;
         }
     }
     catch (err) {
         console.error('Error fetching movies', err);
     }
+
 }
 
 function addMovie(movieParam, movieTopParam) {
