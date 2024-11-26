@@ -1,8 +1,7 @@
-const baseUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_average.desc&vote_count.gte=1000`;
 const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
 const imageDescriptionBaseUrl = 'https://image.tmdb.org/t/p/w1280';
 
-const baseUrlPopular = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=popularity.desc&vote_count.gte=9000`;
+const baseUrlPopular = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=popularity.desc&vote_count.gte=17000`;
 const baseUrlUnderrated = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=popularity.asc&vote_count.gte=1000`;
 const baseUrlRated = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_average.desc&vote_count.gte=1000`;
 const baseUrlOverhyped = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=popularity.asc&vote_count.gte=1000`;
@@ -58,7 +57,7 @@ const fetchMovies = async () => {
             totalPagesUnderrated = dataUnderrated.total_pages;
 
             dataUnderrated.results.forEach(movie => {
-                if (movie.vote_average >= 7 && mostUnderratedFilm == 0) {
+                if (movie.vote_average >= 7.5 && mostUnderratedFilm == 0) {
                     const movieTop = document.createElement('p');
                     movieTop.classList.add('movie-top');
                     movieTop.textContent = 'Most underrated horror movie';
@@ -181,6 +180,5 @@ function addMovie(movieParam, movieTopParam) {
     });
 }
 
-  
 // Call the function to fetch and display movies
 fetchMovies();

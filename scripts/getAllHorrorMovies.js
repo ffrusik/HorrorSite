@@ -34,7 +34,6 @@ const fetchMovies = async () => {
                 const movieDescriptionItem = document.createElement('div');
                 const movieDescription = document.createElement('p');
                 movieDescription.textContent = movie.overview;
-                // movieDescription.style.display = "none";
 
                 const movieImage = document.createElement('img');
                 movieImage.src = `${imageBaseUrl}${movie.poster_path}`;
