@@ -80,6 +80,8 @@ body {
     height: 100px;
     top: 0;
     z-index: 1030;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbar {
@@ -89,7 +91,9 @@ body {
     padding: 1rem 2rem;
     border-radius: 4px;
     height: 100px;
+    width: 100%;
 }
+
 .navbar .nav-menu a {
   border-radius: 4px;
   padding: 12px;
@@ -129,7 +133,11 @@ body {
     font-family: 'Horror Font', sans-serif;
     letter-spacing: 2px;
     font-size: xx-large;
-
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .hamburger {
