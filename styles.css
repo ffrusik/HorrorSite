@@ -3,6 +3,7 @@
     src: url(Creepster-Regular.ttf);
 }
 
+
 body {
     display: flex;
     flex-direction: column;
@@ -15,6 +16,7 @@ body {
     color: white;
     font-family: 'Horror Font', sans-serif; 
     margin: 0;
+    cursor: url('imgs/knifeCursor.png'), auto;
 }
 
 .container {
@@ -104,12 +106,14 @@ body {
     background-color: firebrick;
     padding: 12px;
     border-radius: 4px;
+    cursor: url('imgs/knifeCursorSelect.png'), auto;
 }
 
 .nav-logo img {
     width: 170px;
     height: 60;
     float: left;
+        cursor: url('imgs/knifeCursorSelect.png'), auto;
 }
 
 .nav-menu {
@@ -207,11 +211,13 @@ img {vertical-align: middle;}
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
+  cursor: url('imgs/knifeCursorSelect.png'), auto;
 }
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
+  cursor: url('imgs/knifeCursorSelect.png'), auto;
 }
 
 /* Caption text */
@@ -248,6 +254,7 @@ img {vertical-align: middle;}
 
 .active, .dot:hover {
   background-color: #717171;
+  cursor: url('imgs/knifeCursorSelect.png'), auto;
 }
 
 /* Fading animation */
@@ -273,6 +280,7 @@ img {vertical-align: middle;}
     max-width: 1200px;
     justify-content: center;
     margin-top: 10px;
+    cursor: url('imgs/knifeCursorSelect.png'), auto;
 }
 
 #movie-list-home {
@@ -282,6 +290,7 @@ img {vertical-align: middle;}
   max-width: 1200px;
   justify-content: center;
   margin-top: 25px;
+  cursor: url('imgs/knifeCursorSelect.png'), auto;
 }
   
 .movie-item {
