@@ -4,7 +4,7 @@ const imageDescriptionBaseUrl = 'https://image.tmdb.org/t/p/w1280';
 const baseUrlPopular = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=popularity.desc&vote_count.gte=17000`;
 const baseUrlUnderrated = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=popularity.asc&vote_count.gte=1000`;
 const baseUrlRated = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_average.desc&vote_count.gte=1000`;
-const baseUrlOverhyped = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=popularity.asc&vote_count.gte=1000`;
+const baseUrlOverhyped = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_count.desc`;
 
 const fetchMovies = async () => {
     const movieList = document.getElementById('movie-list-home');
@@ -121,7 +121,7 @@ function addMovie(movieParam, movieTopParam) {
     movieItem.classList.add('movie-item-home');
 
     const movieTitle = document.createElement('p');
-    movieTitle.classList.add('movie-title')
+    movieTitle.classList.add('movie-title');
     movieTitle.textContent = movieParam.title;
 
     const movieTitleDescription = document.createElement('p');
@@ -129,8 +129,33 @@ function addMovie(movieParam, movieTopParam) {
     movieTitleDescription.classList.add('movie-title-description');
 
     const movieDescriptionItem = document.createElement('div');
+    movieDescriptionItem.classList.add('movie-description-item');
+
     const movieDescription = document.createElement('p');
     movieDescription.textContent = movieParam.overview;
+
+    const movieRating = document.createElement('p');
+    movieRating.textContent = `Rating: ${movieParam.vote_average}`;
+    movieRating.classList.add('movie-rating');
+
+    const movieVotes = document.createElement('p');
+    movieVotes.textContent = `Number of votes: ${movieParam.vote_count}`;
+    movieVotes.classList.add('movie-votes');
+
+    const movieCast = document.createElement('p');
+    movieCast.textContent = 'Loading cast...'; // Placeholder
+    movieCast.classList.add('movie-cast');
+
+    fetch(`https://api.themoviedb.org/3/movie/${movieParam.id}/credits?api_key=${window.apiKey}`)
+        .then((response) => response.json())
+        .then((data) => {
+            const cast = data.cast.slice(0, 5).map(actor => actor.name).join(', ');
+            movieCast.textContent = `Cast: ${cast}`;
+        })
+        .catch((error) => {
+            console.error('Error fetching cast:', error);
+            movieCast.textContent = 'Cast: Not available';
+        });
 
     const movieImage = document.createElement('img');
     movieImage.src = `${imageBaseUrl}${movieParam.poster_path}`;
@@ -140,7 +165,6 @@ function addMovie(movieParam, movieTopParam) {
     };
 
     const movieImageDescription = document.createElement('img');
-
     movieImageDescription.src = movieParam.backdrop_path
         ? `${imageDescriptionBaseUrl}${movieParam.backdrop_path}`
         : `${imageDescriptionBaseUrl}${movieParam.poster_path}`;
@@ -151,10 +175,14 @@ function addMovie(movieParam, movieTopParam) {
     movieItem.appendChild(movieTitle);
     movieList.appendChild(movieItem);
 
-    movieItem.appendChild(movieDescriptionItem);
     movieDescriptionItem.appendChild(movieTitleDescription);
     movieDescriptionItem.appendChild(movieImageDescription);
     movieDescriptionItem.appendChild(movieDescription);
+    movieDescriptionItem.appendChild(movieRating);
+    movieDescriptionItem.appendChild(movieVotes);
+    movieDescriptionItem.appendChild(movieCast);
+
+    movieItem.appendChild(movieDescriptionItem);
 
     movieImage.addEventListener('click', () => {
         movieDescriptionItem.style.display = 'block';

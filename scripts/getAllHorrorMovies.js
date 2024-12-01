@@ -7,8 +7,8 @@ const fetchMovies = async () => {
     movieList.innerHTML = '';
 
     let page = 1;
-    let totalPages = 1; // temp value
-  
+    let totalPages = 1;
+
     try {
         while (page <= totalPages) {
             const url = `${baseUrl}&page=${page}`;
@@ -16,11 +16,9 @@ const fetchMovies = async () => {
             if (!res.ok) throw new Error('Network response was not okay ' + res.statusText);
 
             const data = await res.json();
-
             totalPages = data.total_pages;
-            console.log(totalPages);
 
-            data.results.forEach(movie => {
+            for (const movie of data.results) {
                 const movieItem = document.createElement('div');
                 movieItem.classList.add('movie-item');
 
@@ -35,6 +33,14 @@ const fetchMovies = async () => {
                 const movieDescription = document.createElement('p');
                 movieDescription.textContent = movie.overview;
 
+                const movieRating = document.createElement('p');
+                movieRating.textContent = `Rating: ${movie.vote_average}`;
+                movieRating.classList.add('movie-rating');
+
+                const movieVotes = document.createElement('p');
+                movieVotes.textContent = `Number of votes: ${movie.vote_count}`;
+                movieVotes.classList.add('movie-votes');
+
                 const movieImage = document.createElement('img');
                 movieImage.src = `${imageBaseUrl}${movie.poster_path}`;
                 movieImage.alt = `${movie.title} poster`;
@@ -43,29 +49,44 @@ const fetchMovies = async () => {
                 };
 
                 const movieImageDescription = document.createElement('img');
-
-                if (movie.backdrop_path == null) {
-                    movieImageDescription.src = `${imageDescriptionBaseUrl}${movie.poster_path}`;
-                } else {
-                    movieImageDescription.src = `${imageDescriptionBaseUrl}${movie.backdrop_path}`;
-                }
-
+                movieImageDescription.src = movie.backdrop_path
+                    ? `${imageDescriptionBaseUrl}${movie.backdrop_path}`
+                    : `${imageDescriptionBaseUrl}${movie.poster_path}`;
                 movieImageDescription.classList.add('movie-img-description');
 
+                // Fetch and add cast information
+                const castUrl = `https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${window.apiKey}`;
+                const castResponse = await fetch(castUrl);
+                const castData = await castResponse.json();
+
+                const castList = document.createElement('p');
+                const castNames = castData.cast
+                    .slice(0, 5) // Get top 5 cast members
+                    .map(actor => actor.name)
+                    .join(', ');
+                castList.textContent = `Cast: ${castNames}`;
+                castList.classList.add('movie-cast');
+
+                // Append elements
                 movieItem.appendChild(movieImage);
                 movieItem.appendChild(movieTitle);
                 movieList.appendChild(movieItem);
 
-                movieItem.appendChild(movieDescriptionItem);
                 movieDescriptionItem.appendChild(movieTitleDescription);
                 movieDescriptionItem.appendChild(movieImageDescription);
                 movieDescriptionItem.appendChild(movieDescription);
+                movieDescriptionItem.appendChild(movieRating);
+                movieDescriptionItem.appendChild(movieVotes);
+                movieDescriptionItem.appendChild(castList);
+
+                movieItem.appendChild(movieDescriptionItem);
+
 
                 movieImage.addEventListener('click', () => {
                     movieDescriptionItem.style.display = 'block';
                     movieDescriptionItem.style.opacity = '1';
                 });
-            
+
                 document.addEventListener('click', (event) => {
                     if (
                         !movieDescriptionItem.contains(event.target) &&
@@ -75,7 +96,7 @@ const fetchMovies = async () => {
                         movieDescriptionItem.style.opacity = '0';
                     }
                 });
-            
+
                 document.addEventListener('keydown', (event) => {
                     if (event.key === 'Escape') {
                         movieDescriptionItem.style.display = 'none';
@@ -83,15 +104,13 @@ const fetchMovies = async () => {
                         document.body.classList.remove('no-scroll');
                     }
                 });
-            });
-
+            }
             page++;
         }
-    }
-    catch (err) {
+    } catch (err) {
         console.error('Error fetching movies', err);
     }
-}
-  
+};
+
 // Call the function to fetch and display movies
 fetchMovies();
