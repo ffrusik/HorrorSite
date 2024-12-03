@@ -1,22 +1,21 @@
 @font-face {
-    font-family: 'Horror Font';
-    src: url(Creepster-Regular.ttf);
+  font-family: 'Horror Font';
+  src: url(Creepster-Regular.ttf);
 }
 
-
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    background-image: url('imgs/moviebg2.jpg');
-    background-size: 100%;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    color: white;
-    font-family: 'Horror Font', sans-serif; 
-    margin: 0;
-    cursor: url('imgs/knifeCursor.png'), auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  background-image: url('imgs/moviebg2.jpg');
+  background-size: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: white;
+  font-family: 'Horror Font', sans-serif; 
+  margin: 0;
+  cursor: url('imgs/knifeCursor.png'), auto;
 }
 
 .container {
@@ -411,6 +410,65 @@ img {vertical-align: middle;}
 .movie-title {
   font-size: 150%;
 }
+
+.news p {
+  font-size: 125%;
+  text-align: center;
+} 
+
+.news {
+  padding: 5px;
+  background-color:rgba(39, 37, 37, 0.9);
+  border-radius: 40px;
+  margin: 10px auto 20px;
+  transition: transform .2s;
+}
+
+#news-div {
+  width: 80%;
+}
+
+.news:hover {
+  background-color: rgba(17, 16, 16, 0.9);
+  /* -ms-transform: scale(1.07);
+  -webkit-transform: scale(1.07);
+  transform: scale(1.07);  */
+}
+
+.news img {
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#news-div .news .news-extended {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 80%;
+  height: 80%;
+  background: rgba(20, 19, 19, 0.95);
+  color: white;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  text-align: center;
+  border-radius: 15px;
+  overflow-y: auto;
+  font-size: 1.2rem;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+#news-div .news .news-extended.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
 
 .divAbout{
   font-size: 150%;
