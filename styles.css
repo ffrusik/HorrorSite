@@ -469,6 +469,44 @@ img {vertical-align: middle;}
   transform: translate(-50%, -50%) scale(1);
 }
 
+
+.divAbout{
+  font-size: 150%;
+  color: firebrick;
+  width:100%;
+  flex-direction: row;
+  display: flex;
+  padding: 5px;
+}
+
+p1 {
+  color: white;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  left: 2%;
+  top: -10%;
+}
+
+h2 {
+  margin-left: 2%;
+}
+
+.aboutUs{
+  width: 65%;
+  margin-left: 1%;
+  border: 3px solid gray;
+  border-radius: 25px;
+}
+
+.developers{
+  width: 30%;
+  float: right;
+  border: 3px solid grey;
+  border-radius: 25px;
+  margin-left: 1%;
+}
+
 #film-list-search {
   list-style: none;
   padding: 0;
