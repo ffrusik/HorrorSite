@@ -411,3 +411,34 @@ img {vertical-align: middle;}
 .movie-title {
   font-size: 150%;
 }
+
+.news p {
+  font-size: 125%;
+  text-align: center;
+} 
+
+.news {
+  padding: 5px;
+  background-color:rgba(39, 37, 37, 0.9);
+  border-radius: 40px;
+  margin: 10px auto 20px;
+  transition: transform .2s;
+}
+
+.news-div {
+  width: 80%;
+}
+
+.news:hover {
+  background-color: rgba(17, 16, 16, 0.9);
+  -ms-transform: scale(1.07); /* IE 9 */
+  -webkit-transform: scale(1.07); /* Safari 3-8 */
+  transform: scale(1.07); 
+}
+
+.news img {
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
