@@ -507,7 +507,12 @@ h2 {
   margin-left: 1%;
 }
 
-<<<<<<< HEAD
+#film-list-search {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 /* Three image containers (use 25% for four, and 50% for two, etc) */
 .column {
   float: left;
@@ -525,11 +530,4 @@ h2 {
 h3{
   color: firebrick;
   font-size: 300%;
-=======
-#film-list-search {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  
->>>>>>> 1f776edfbfab69bc5182d849315eb7aa2f5c7a0b
 }
