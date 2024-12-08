@@ -1,6 +1,14 @@
-const baseUrlSearch = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_average.desc&vote_count.gte=10000`;
+const baseUrlSearch = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_average.desc&vote_count.gte=1000`;
 const imageBaseUrlSearch = 'https://image.tmdb.org/t/p/w500';
 const imageDescriptionBaseUrlSearch = 'https://image.tmdb.org/t/p/w1280';
+
+const searchBar = document.getElementById('search-bar');
+
+let films = document.getElementsByClassName('movie-item');
+
+for (i = 0; i < films.length; i++) {
+    films[i].style.display = "none";
+}
 
 const fetchMoviesSearch = async () => {
     const movieListSearch = document.getElementById('film-list-search');
@@ -19,7 +27,7 @@ const fetchMoviesSearch = async () => {
             totalPages = data.total_pages;
 
             for (const movie of data.results) {
-                const movieItem = document.createElement('li');
+                const movieItem = document.createElement('div');
                 movieItem.classList.add('movie-item');  
 
                 const movieTitle = document.createElement('p');
@@ -42,7 +50,9 @@ const fetchMoviesSearch = async () => {
                 movieVotes.classList.add('movie-votes');
 
                 const movieImage = document.createElement('img');
-                movieImage.src = `${imageBaseUrlSearch}${movie.poster_path}`;
+                movieImage.src = movie.backdrop_path
+                    ? `${imageBaseUrlSearch}${movie.backdrop_path}`
+                    : `${imageBaseUrlSearch}${movie.poster_path}`;
                 movieImage.alt = `${movie.title} poster`;
                 movieImage.onerror = () => {
                     movieImage.alt = 'Image not available';
@@ -81,6 +91,18 @@ const fetchMoviesSearch = async () => {
 
                 movieItem.appendChild(movieDescriptionItem);
 
+                // Show the list when the search bar is focused
+                searchBar.addEventListener('focus', () => {
+                    movieListSearch.classList.remove('hidden');
+                });
+
+                // Hide the list when clicking outside of it
+                document.addEventListener('click', (e) => {
+                    if (!movieListSearch.contains(e.target) && e.target !== searchBar) {
+                        movieListSearch.classList.add('hidden');
+                    }
+                });
+
 
                 movieImage.addEventListener('click', () => {
                     movieDescriptionItem.style.display = 'block';
@@ -116,13 +138,12 @@ const fetchMoviesSearch = async () => {
 fetchMoviesSearch();
 
 function searchFilm() {
-    let input = document.getElementById('search-bar').value
+    let input = document.getElementById('search-bar').value;
     input = input.toLowerCase();
     let films = document.getElementsByClassName('movie-item');
-    let x = document.getElementsByClassName('film-list-search');
 
-    for (i = 0; i < x.length; i++) {
-        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+    for (i = 0; i < films.length; i++) {
+        if (!films[i].innerHTML.toLowerCase().includes(input)) {
             films[i].style.display = "none";
         }
         else {

@@ -125,10 +125,10 @@ body {
 }
 
 .nav-link {
-    font-family: Arial;
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 1rem;
+  font-family: 'Horror Font', sans-serif; 
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
 }
 
 .title1 {
@@ -275,6 +275,7 @@ img {vertical-align: middle;}
 #movie-list {
     display: flex;
     flex-wrap: wrap;
+    list-style: none;
     gap: 20px;
     max-width: 1200px;
     justify-content: center;
@@ -285,6 +286,7 @@ img {vertical-align: middle;}
 #movie-list-home {
   display: flex;
   flex-wrap: wrap;
+  list-style: none;
   gap: 50px;
   max-width: 1200px;
   justify-content: center;
@@ -482,7 +484,7 @@ img {vertical-align: middle;}
   border-radius: 25px;
 }
 
-p1 {
+.p1 {
   color: white;
   font-size: medium;
   font-family: Arial, Helvetica, sans-serif;
@@ -508,9 +510,18 @@ h2 {
 }
 
 #film-list-search {
+  position: absolute;
+  top: 80px;
+  z-index: 1000;
+  background-color: #242424;
+  padding: 10px;
+  border: 1px solid #fff;
   list-style: none;
-  padding: 0;
-  margin: 0;
+  max-height: 540px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
 }
 
 /* Three image containers (use 25% for four, and 50% for two, etc) */
@@ -530,4 +541,35 @@ h2 {
 h3{
   color: firebrick;
   font-size: 300%;
+}
+
+.hidden {
+  display: none;
+}
+
+#film-list-search .movie-item div.show {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#film-list-search .movie-item div {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 80%;
+  height: 80%;
+  background: rgba(20, 19, 19, 0.95);
+  color: white;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  text-align: center;
+  border-radius: 15px;
+  overflow-y: auto;
+  font-size: 1.2rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
 }
