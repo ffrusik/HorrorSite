@@ -4,12 +4,6 @@ const imageDescriptionBaseUrlSearch = 'https://image.tmdb.org/t/p/w1280';
 
 const searchBar = document.getElementById('search-bar');
 
-let films = document.getElementsByClassName('movie-item');
-
-for (i = 0; i < films.length; i++) {
-    films[i].style.display = "none";
-}
-
 const fetchMoviesSearch = async () => {
     const movieListSearch = document.getElementById('film-list-search');
     movieListSearch.innerHTML = '';
@@ -151,5 +145,3 @@ function searchFilm() {
         }
     }
 }
-
-// https://www.geeksforgeeks.org/search-bar-using-html-css-and-javascript/
