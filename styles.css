@@ -450,7 +450,7 @@ img {vertical-align: middle;}
   visibility: hidden;
   opacity: 0;
   position: fixed;
-  top: 50%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.8);
   width: 80%;
@@ -588,4 +588,8 @@ h3{
 .link-full-article {
   text-decoration: underline;
   font-size: 150%;
+}
+
+.news-title-extended {
+  font-size: 200%;
 }
