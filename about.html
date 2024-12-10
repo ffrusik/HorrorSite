@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://db.onlinewebfonts.com/c/c4d8819fda4c3fd79e36cedcc8d422bb?family=Halyard+Display" rel="stylesheet">
     <title>About</title>
 </head>
 <body>
-    <script src="config.js"></script>
+    
     <br><br><br><br><br><br>
 
     <header class="header">
@@ -17,16 +22,12 @@
             <span class="title1"><h1>About</h1></span>
 
             <div class="container">
-                <div class="searchbox">
-                    <input id="search-bar" onkeyup="searchFilm()" type="text" class="searchbox__input" placeholder="Search..." />
-                    <svg class="searchbox__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.966 56.966">
-                    <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17s-17-7.626-17-17S14.61,6,23.984,6z" />
-                    </svg>
-                </div>
-
-                <div id="film-list-search" class="hidden">
-
-                </div>
+            <div class="searchbox">
+                <input type="text" class="searchbox__input" placeholder="Search..." />
+                <svg class="searchbox__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.966 56.966">
+                <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17s-17-7.626-17-17S14.61,6,23.984,6z" />
+                </svg>
+            </div>
             </div>
     
             <ul class="nav-menu">
@@ -45,44 +46,48 @@
         </nav>
     </header>
 
-    <div class="divAbout">
-        <div class="aboutUs">
-            <h2>About Us</h2>
-            <p1>We are a group of 4 students from ATU Donegal!<br>we have decided to make a website based on our love for horror movies and horror media in general</p1>
-        </div>
-        <div class="developers">
-            <h2>Developers</h2>
-            <p1>Ruslan<br>Lennon<br>Abdul<br>Tiernan<br></p1>
-        </div>
-    </div>
-    <div class="divAbout">
-        <h2>A short history of horror movies</h2>
+    <script src="config.js"></script>
+
+    <div class="cont">
+        <h1>About</h1>
+
+        <hr width="40%" color="#ff3131"/>
+
+        <p>
+            Welcome to <u>The Horror</u>, a thrilling website created by our group as part of a class assignment. Designed with a dark, theater-inspired color scheme, this site brings the eerie world of horror movies to life. On the homepage, you will find a dynamic slider carousel showcasing covers from some of the most iconic and popular horror films. The Films page presents a collection of movie covers, making it easy to explore a variety of terrifying titles. Our News page will keep you updated with the latest news, reviews, and announcements from the world of horror cinema. The purpose of this website is to share our passion for the horror genre, offering an engaging experience for fans and newcomers alike. We hope you enjoy exploring <u>The Horror</u> and get a taste of the chilling entertainment that horror movies provide!
+        </p>
     </div>
 
-    <h3>Here is some fanart uploaded by our users</h3>
-    <div class="divAbout">
-        <div class="column">
-            <img src="imgs/tempImg.jpg" alt="Snow" style="width:100%">
-            <img src="imgs/smileposter.jpg" alt="Forest" style="width:100%">
+    <div class="cont2">
+        <div class="col1">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. At debitis numquam corrupti vero dolorem, quidem nulla perferendis ad. Earum itaque saepe sit minus quibusdam quisquam nesciunt ipsam, id eveniet. Odit.</p>
         </div>
-        <div class="column">
-            <img src="imgs/smileposter.jpg" alt="Forest" style="width:100%">
-            <img src="imgs/tempImg.jpg" alt="Snow" style="width:100%">
-        </div>
-        <div class="column">
-            <img src="imgs/theconjuring.jpg" alt="Mountains" style="width:100%">
-            <img src="imgs/sinisterposter.jpg" alt="Forest" style="width:100%">
-        </div>
-        <div class="column">
-            <img src="imgs/sinisterposter.jpg" alt="Forest" style="width:100%">
-            <img src="imgs/tempImg.jpg" alt="Mountains" style="width:100%">
-        </div>
-        <div class="column">
-            <img src="imgs/tempImg.jpg" alt="Mountains" style="width:100%">
-            <img src="imgs/theconjuring.jpg" alt="Mountains" style="width:100%">
+
+        <div class="col2">
+            <img src="imgs/image.png">
         </div>
     </div>
 
-    <script src="scripts/search.js"></script>
+
+
 </body>
+
+<footer>
+    <div class="footer-container">
+        <div class="social-icons">
+            <a href="#" class="fab fa-facebook"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+        </div>
+        <div class="footer-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+</footer>
+
 </html>
