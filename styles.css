@@ -574,3 +574,18 @@ h3{
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 0;
 }
+
+.img-news-extended {
+  width: 800px;
+  margin: 0 auto 0;
+}
+
+.img-news-extended img {
+  width: 100%;
+  height: auto;
+}
+
+.link-full-article {
+  text-decoration: underline;
+  font-size: 150%;
+}
