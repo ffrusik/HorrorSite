@@ -1,4 +1,4 @@
-const baseUrlSearch = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_average.desc&vote_count.gte=1000`;
+const baseUrlSearch = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_average.desc&vote_count.gte=2000`;
 const imageBaseUrlSearch = 'https://image.tmdb.org/t/p/w500';
 const imageDescriptionBaseUrlSearch = 'https://image.tmdb.org/t/p/w1280';
 
@@ -137,7 +137,7 @@ function searchFilm() {
     let films = document.getElementsByClassName('movie-item');
 
     for (i = 0; i < films.length; i++) {
-        if (!films[i].innerHTML.toLowerCase().includes(input)) {
+        if (!films[i].textContent.toLowerCase().includes(input)) {
             films[i].style.display = "none";
         }
         else {
