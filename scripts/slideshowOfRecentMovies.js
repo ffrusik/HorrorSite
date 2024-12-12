@@ -91,6 +91,6 @@ function addMovieSlideshow(movieParam) {
         }
     });
 }
-*/
 
-fetchSlideshowMovies();
+addMovieSlideshow();
+*/

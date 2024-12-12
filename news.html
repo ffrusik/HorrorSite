@@ -21,12 +21,16 @@
             <span class="title1"><h1>news</h1></span>
 
             <div class="container">
-            <div class="searchbox">
-                <input type="text" class="searchbox__input" placeholder="Search..." />
-                <svg class="searchbox__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.966 56.966">
-                <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17s-17-7.626-17-17S14.61,6,23.984,6z" />
-                </svg>
-            </div>
+                <div class="searchbox">
+                    <input id="search-bar" onkeyup="searchFilm()" type="text" class="searchbox__input" placeholder="Search..." />
+                    <svg class="searchbox__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.966 56.966">
+                    <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17s-17-7.626-17-17S14.61,6,23.984,6z" />
+                    </svg>
+                </div>
+
+                <div id="film-list-search" class="hidden">
+
+                </div>
             </div>
     
             <ul class="nav-menu">
@@ -45,26 +49,208 @@
         </nav>
     </header>
 
-    <script src="config.js"></script>
+    <div id="news-div">
+        <div class="news">
+            <p>Chris Evans Eyes MCU Return In The Russo Brothers’ Avengers: Doomsday</p>
+            <img src="imgs/Chris-Evans.avif">
+            <p>Published on 10th December 2024 at 12.56am</p>
+            <div class="news-extended">
+                <i class="news-title-extended">Chris Evans Eyes MCU Return In The Russo Brothers’ Avengers: Doomsday</i>
 
-</body>
+                <p>On your left — exciting MCU news coming through! Having made a memorable and wholly unexpected cameo in this summer's r-rated (and newly Golden Globes nominated) mutant mash-up Deadpool & Wolverine, it looks like Chris Evans isn't quite ready to call time on his relationship with the Marvel Cinematic Universe just yet. According to Deadline, Evans is heading for a reunion with his Avengers: Infinity War and Endgame co-star Robert Downey Jr. and directors The Russo Brothers on upcoming Multiverse Saga movie Avengers: Doomsday.</p>
 
-<footer>
-    <div class="footer-container">
-        <div class="social-icons">
-            <a href="#" class="fab fa-facebook"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
+                <p>Much like the movie's plot, details regarding who exactly Evans will play in Doomsday are under wraps for now — and the multiverse being what it is, there's certainly no shortage of options. Per Deadline's reporting, sources state that Anthony Mackie's Sam Wilson will be Captain America in the team-up joint, meaning it's unlikely but not impossible that we'll see Evans suiting up to play America's Ass one last time. He could however still be Steve Rogers again, who we last saw as an old man at the end of Avengers: Endgame having lived a long and happy life with his wartime sweetheart Peggy Carter (Hayley Atwell). There's also the possibility that, having just left us in creases reprising his role as a decidedly swearier Johnny Storm than we've ever seen him play before in Deadpool & Wolverine, Evans could pop up to "Flame on!" once more for the hell of it — though knowing that the MCU's First Family from The Fantastic Four: First Steps will be in Doomsday would make that seem unlikely. You also can't rule out the possibility that Evans could rock up as an entirely different character from Marvel's illustrious canon — after RDJ's casting as Doctor Doom, all bets are well and truly off!</p>
+
+                <div class="img-news-extended"><img src="imgs/Chris-Evans.avif"></div>
+
+                <a class="link-full-article" href="https://www.empireonline.com/movies/news/chris-evans-eyes-mcu-return-in-the-russo-brothers-avengers-doomsday/" target="_blank">Link to the full article...<a>
+            </div>
         </div>
-        <div class="footer-links">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
+
+        <div class="news">
+            <p>Jeremy Allen White Joins The Mandalorian & Grogu Movie As Jabba The Hutt’s Son Rotta</p>
+            <img src="imgs/Jeremy-Allen-White.avif">
+            <p>Published on 9th December 2024 at 11.44pm</p>
+            <div class="news-extended">
+                <i class="news-title-extended">Jeremy Allen White Joins The Mandalorian & Grogu Movie As Jabba The Hutt’s Son Rotta</i>
+
+                <p>Jeremy Allen White may well be one of the most dynamic actors working today. He's handled the heat and stayed in the kitchen in The Bear, flexed his muscles as professional wrestler Kerry Von Erich in Sean Durkin's emotional duplex of a movie The Iron Claw, and will soon be seen getting his Boss on in Bruce Springsteen biopic Deliver Me. And for his next move? Well, according to THR, White's about to swap Nebraska for a galaxy far, far away. Yes, the in-demand New Yorker is joining the Star Wars universe and will be voicing a key role in Jon Favreau's recently wrapped Mandoverse movie The Mandalorian & Grogu.</p>
+
+                <p>Per the trade's reporting, White is set to voice Rotta the Hutt — son of limacine gangster Jabba — in Favreau's new Star Wars spin-off, which will see Pedro Pascal reprise his role as the titular bounty hunter from The Mandalorian as he continues adventuring in space with his adoptive son Grogu. White is only the second new name to have joined the call sheet for the movie, following Sigourney Weaver's casting back in May. And while we have no idea who Weaver will be playing just yet, or indeed exactly what the plot will entail as plot threads from Ahsoka and Rebels (and possibly even Skeleton Crew) all look set to converge, we have met White's character Rotta before.</p>
+
+                <div class="img-news-extended"><img src="imgs/Jeremy-Allen-White.avif"></div>
+
+                <a class="link-full-article" href="https://www.empireonline.com/movies/news/jeremy-allen-white-joins-the-mandalorian-grogu-movie-as-jabba-the-hutts-son-rotta/" target="_blank">Link to the full article...<a>
+            </div>
+        </div>
+
+        <div class="news">
+            <p>Emilia Pérez, The Brutalist, And Conclave Lead The 2025 Golden Globes Nominations</p>
+            <img src="imgs/Golden-Globes-2024.avif">
+            <p>Published on 9th December 2024 at 6.45pm</p>
+            <div class="news-extended">
+                <i class="news-title-extended">Emilia Pérez, The Brutalist, And Conclave Lead The 2025 Golden Globes Nominations</i>
+
+                <p>The confetti has hardly settled on last night's British Independent Film Awards, but — never an organisation to be knowingly upstaged — the Hollywood Foreign Press today unveiled the nominees for the 2025 Golden Globes. And while the GGs (as nobody calls them) may have lost some of their shine in recent years, the noms can be a decent bellwether for the Oscars and BAFTAs yet to come. With that being said, this year the pack is being led by Jacques Audiard's trans coming-of-age drama-cum-musical gangland thriller Emilia Pérez (10 nominations), Brady Corbet's monumental deconstruction of the American Dream The Brutalist (7 nominations), and Edward Berger's papal conspiracy thriller Conclave (6 nominations).</p>
+
+                <p>All three of the above are up for top honours including Best Motion Picture — Drama (and Comedy/Musical for Emilia Pérez) and Best Director, sharing space with the likes of A Complete Unknown, Dune: Part Two, Challengers, Wicked, Anora, and The Substance — all of which are nominated in multiple key categories (and many of which feature in our newly published Best Movies of 2024 list.) In the actor and actress head-to-heads, highlights among the nominees include Sebastian Stan, who's nominated for Best Actor in both Drama and Musical/Comedy categories for his work in A Different Man and The Apprentice (we'll let you decide which film is in which race); Hugh Grant, who's scored a well-earned Best Actor in a Musical/Comedy nod for Heretic; and also Isabella Rossellini, who has become the first Italian actor to land a nom for Best Performance by a Female Actor for her sterling turn in Conclave.</p>
+
+                <p>Elsewhere, the Cinematic and Box Office Achievement Award continues to exist, giving Beetlejuice Beetlejuice, Deadpool & Wolverine, and Twisters a chance for some statuette-based love this awards season — and Hans Zimmer's Dune: Part Two score is defying its disqualification from Oscar consideration with a Best Score nod at the GGs (again, nobody else is calling it that.) All that, and we haven't even touched on the dazzling array of TV nominees — though you'll be unsurprised to learn that The Bear leads the way with five nominations, closely followed by 2024 faves including Shōgun, Slow Horses, Baby Reindeer, and the not-actually-out-yet Squid Game Season 2.</p>
+
+                <div class="img-news-extended"><img src="imgs/Golden-Globes-2024.avif"></div>
+
+                <a class="link-full-article" href="https://www.empireonline.com/movies/news/emilia-perez-the-brutalist-and-conclave-lead-the-2025-golden-globes-nominations/" target="_blank">Link to the full article...<a>
+            </div>
+        </div>
+
+        <div class="news">
+            <p>Ana De Armas Kicks Ass In New Behind The Scenes Look At John Wick Spin-Off Ballerina</p>
+            <img src="imgs/Ballerina.avif">
+            <p>Published on 9th December 2024 at 12.01am</p>
+            <div class="news-extended">
+                <i class="news-title-extended">Ana De Armas Kicks Ass In New Behind The Scenes Look At John Wick Spin-Off Ballerina</i>
+
+                <p>"This is not a female John Wick." So says director Len Wiseman at the start of the freshly dropped CCXP behind the scenes look at his upcoming actioner Ballerina, the latest off-shoot from the John Wick universe. But while that's certainly true — this movie is set to represent the introduction point for Ana De Armas' Eve Macarro, the Ruska Roma trained dancing assassin who'll be bringing a whole new meaning to the expression 'bullet ballet' in Lionsgate's hotly anticipated John Wick: Chapter 3 — Parabellum and Chapter 4 midquel — it doesn't mean the ever-expanding JWU's latest lead is any less formidable than Keanu Reeves' Baba Yaga. Quite the opposite in fact. Just check out the featurette below to see what we mean:</p>
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2Cp5kSNWYSE" frameborder="0" allowfullscreen></iframe>
+
+                <p>Much of the emphasis here is on how Ballerina is set to expand the Wickiverse, with the likes of franchise godhead Chad Stahelski, director Wiseman, and the late, great Lance Reddick speaking to the depth of lore surrounding Wick's world and its rituals — and the way Ballerina offers the series a new creative outlet to explore. From our side of things however, this extended look at production on the movie — peppered generously with exciting new glimpses of De Armas kicking ass, the return of Reeves' Baba Yaga, and an insane looking flamethrower sequence ("I think I burn 106 people," coolly explains the film's lead) — really is a chance to see just how far the team behind and in front of the camera have gone to fill this thing wall-to-wall with the kind of incredible fight choreography and stuntwork the franchise's fanbase has come to expect. On present evidence, we're saying it looks like they've crushed it.</p>
+
+                <p>Also along for a slice of the action-packed pie in this one are Ian McShane's hotelier-for-hitmen Winston, Anjelica Huston's Ruska Roma alum Director, the aforementioned Reeves' John Wick and Reddick's concierge Charon, and newcomers to the franchise including Gabriel Byrne, Catalina Sandino Moreno, and Norman Reedus — the last of whom's reaction to seeing Reeves pop a clip on set is a real highlight from this new teaser trailer.</p>
+
+                <div class="img-news-extended"><img src="imgs/Ballerina.avif"></div>
+
+                <a class="link-full-article" href="https://www.empireonline.com/movies/news/ana-de-armas-kicks-ass-in-new-behind-the-scenes-look-at-john-wick-spin-off-ballerina/" target="_blank">Link to the full article...<a>
+            </div>
+        </div>
+
+        <div class="news">
+            <p>28 Years Later: Sony Reveals First Poster For Danny Boyle And Alex Garland’s Horror Sequel</p>
+            <img src="imgs/28-Years-Later-HERO-1.avif">
+            <p>Published on 6th December 2024 at 10.56am</p>
+            <div class="news-extended">
+                <i class="news-title-extended">28 Years Later: Sony Reveals First Poster For Danny Boyle And Alex Garland’s Horror Sequel</i>
+
+                <p>2024 kicked off with the exciting news that Danny Boyle and Alex Garland were officially developing 28 Years Later, the first in a planned sequel trilogy to their 2002 post-apocalyptic horror 28 Days Later (and, by extension, its follow-up 28 Weeks Later.) Since then, we've seen Jodie Comer, Aaron Taylor Johnson, and Ralph Fiennes announced as the new movie's leads, gotten word of Cillian Murphy's return to the franchise, and been drip-fed tantalising plot details by Fiennes. Now, as the year comes to a close and the film's June 2025 release grows ever closer, Sony has revealed the first poster for the next chapter in Boyle and Garland's Rage Virus saga. Check it out below:</p>
+
+                <div class="img-news-extended"><img src="imgs/28-Years-Later-Poster.avif"></div>
+
+                <p>A biohazard sign formed of blood-red skulls. Scratched in lettering. An imposing title treatment. The promise of a theatrical release. And a sinister new logline: Time Didn't Heal Anything. It's a minimalist approach to a first poster, sure, but our first piece of promo for 28 Years Later is hitting all the right, doom-and-gloom notes, centring the body count amassed by the Rage Virus while setting us up to return to a world that's only gotten more broken since we last saw it. Paired with Fiennes' description of the plot to IndieWire, which confirms things pick up 28 years into the pandemic as we're set to follow a young boy's journey to find a doctor (Fiennes) to help his dying mother, and the makings are all there for a movie — well, the first of three movies — that will remind us how before The Last Of Us was even a fungal twinkle in Neil Druckmann's eye, Boyle and Garland rewrote the rulebook for zombie-adjacent horror first.</p>
+
+                <p>Also along for 28 Years Later are Jack O'Connell and Erin Kellyman, both of whom will help steer the series' new trilogy, the second chapter of which — Nia DaCosta's 28 Years Later Part II: The Bone Temple — has already been shot. As for how this first film will shake out, we'll find out when 28 Years Later tears through cinemas across the world on 20 June, 2025.</p>
+
+                <a class="link-full-article" href="https://www.empireonline.com/movies/news/28-years-later-sony-reveals-first-poster-for-danny-boyle-and-alex-garlands-zombie-horror-sequel/" target="_blank">Link to the full article...<a>
+            </div>
+        </div>
+
+        <div class="news">
+            <p>Elizabeth Olsen Will Star Alongside Julia Roberts In Sam Esmail Thriller Panic Carefully</p>
+            <img src="imgs/Panic-Carefully.avif">
+            <p>Published on 5th December 2024 at 6.08pm</p>
+            <div class="news-extended">
+                <i class="news-title-extended">Elizabeth Olsen Will Star Alongside Julia Roberts In Sam Esmail Thriller Panic Carefully</i>
+
+                <p>Just a year ago, Mr. Robot creator Sam Esmail was encouraging us all to Leave The World Behind with his eponymous noodle-twisting, apocalyptic Netflix thriller. Clearly however, Esmail forgot to make a very specific exemption to that directive — it should've been Leave The World Behind (But Not Julia Roberts). "How so?" We hear you cry. Well because, per Deadline's reporting, the LTWB leading lady is teaming up with Esmail once again on new Warner Bros. thriller Panic Carefully. And, what's more, he's only gone and gotten the Scarlet Witch herself, Elizabeth Olsen, to come along for the ride too.</p>
+
+                <p>Set to be directed by Esmail from a self-penned script, plot specifics for Panic Carefully remain hush-hush for the time being. However, according to Deadline, the expectation is that the film will be a Mr. Robot style paranoid thriller, with Jonathan Demme's classic The Silence Of The Lambs also serving as a tonal reference point. And while that admittedly isn't a hell of a lot to work with at this point, the fact that the project sparked a heated bidding war earlier this year — a bidding war won on the promise of a theatrical release no less — suggests that Warner Bros. are confident they've got something that belongs on the big screen on their hands.</p>
+
+                <p>For Roberts, Panic Carefully joins Luca Guadagnino's After The Hunt as a second buzzy thriller in the Oscar winner's pipeline, while for Olsen — who we most recently saw in Azazel Jacobs' tender Netflix drama His Three Daughters — the project will represent another change of pace for the actor in her post-MCU — or at least seemingly post-MCU (you just never can tell with Kevin Feige and co) — career. For us, seeing these names beneath a title as confrontingly oxymoronic as Panic Carefully is enough to have us sold, sight unseen. And until we hear more, remember: don't panic — panic carefully.</p>
+
+                <div class="img-news-extended"><img src="imgs/Panic-Carefully.avif"></div>
+
+                <a class="link-full-article" href="https://www.empireonline.com/movies/news/elizabeth-olsen-will-star-alongside-julia-roberts-in-sam-esmail-thriller-panic-carefully/" target="_blank">Link to the full article...<a>
+            </div>
+        </div>
+
+        <div class="news">
+            <p>Jason Isaacs And Gillian Anderson Share A Walk To Remember In The Salt Path Trailer</p>
+            <img src="imgs/The-Salt-Path.avif">
+            <p>Updated on 4th December 2024 at 4.44pm</p>
+            <div class="news-extended">
+                <i class="news-title-extended">Jason Isaacs And Gillian Anderson Share A Walk To Remember In The Salt Path Trailer</i>
+
+                <p>You know the old saying about the truth being stranger than fiction? Well, it's certainly one that applies to the story of Raynor and Moth Winn, a couple who — after a business deal with a friend went awry — lost their home, suffered a devastating neurodegenerative condition diagnosis for husband Moth, and then decided to walk the 630-mile South West Coast Path despite having no prior rambling experience. It's a simultaneously harrowing and inspiring story that first became The Salt Path, a bestselling memoir-cum-travelogue for Raynor Winn, and is now about to become a major new film starring Jason Isaacs (Hello!) and Gillian Anderson. You can check out the newly released trailer below:</p>
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/UQ7RJCOm-c8" frameborder="0" allowfullscreen></iframe>
+
+                <p>If, like us, you're a sucker for walky-talky find yourself films like The Way, Wild, A Walk In The Woods, or The Unlikely Pilgrimage Of Harold Fry, then Marianne Elliott's film looks like it'll fit right within the micro-genre's milieu. There's the life-changing inciting incident, with Moth (Isaacs) and Raynor (Anderson) cowering from the bailiffs and receiving bad news about Moth's corticobasal degeneration; there's the wild, ill-advised, spur of the moment decision to undertake a mammoth outer and inner odyssey; there's the eclectic folk they meet along the way; and there's a lot of holding hands, kissing foreheads, shedding tears, and staring up at the sun-dappled wonders of nature. But what really grabs the attention with this one is the combination of genuinely brilliant source material and the prospect of a leading duo of Isaacs and Anderson's calibre really digging deep and getting vulnerable to tell a story about endurance, love, and the indomitability of the human spirit.</p>
+
+                <p>The synopsis for the film, which has been written by Small Axe and She Said scribe Rebecca Lenkiewicz, reads as follows: "After being forcibly removed from their home, Raynor and Moth Winn make the desperate decision to walk in the hope that, in nature, they will find solace and a sense of acceptance. With depleted resources, only a tent and some essentials between them, every step along the path is a testament to their growing strength and determination. The Salt Path is a journey that is exhilarating, challenging, and liberating in equal measure. A portrayal of home, how it can be lost and rediscovered in the most unexpected ways."</p>
+
+                <div class="img-news-extended"><img src="imgs/The-Salt-Path.avif"></div>
+
+                <a class="link-full-article" href="https://www.empireonline.com/movies/news/jason-isaacs-and-gillian-anderson-share-a-walk-to-remember-in-the-salt-path-trailer/" target="_blank">Link to the full article...<a>
+            </div>
+        </div>
+
+        <div class="news">
+            <p>Snow White Trailer: Rachel Zegler’s Disney Princess Faces Gal Gadot’s Evil Queen</p>
+            <img src="imgs/snow-white.avif">
+            <p>Published on 3rd December 2024 at 3.44pm</p>
+            <div class="news-extended">
+                <i class="news-title-extended">Snow White Trailer: Rachel Zegler’s Disney Princess Faces Gal Gadot’s Evil Queen</i>
+
+                <p>Magic mirror, on the wall… what’s the latest classic animated Disney movie to get the live-action treatment? Why yes, it’s Snow White! And a new, full-length trailer has dropped for the photo-real adaptation, with West Side Story and The Hunger Games star Rachel Zegler stepping into that blue puff-sleeve corset and yellow skirt, and Wonder Woman herself, Gal Gadot, going full villain mode as the evil Queen. Watch it below.</p>
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/iV46TJKL8cU" frameborder="0" allowfullscreen></iframe>
+
+                <p>This new version of Disney’s debut feature is directed by The Amazing Spider-Man’s Marc Webb – and from the look of this trailer, is channelling pure Disney fantasy, especially in those woodland scenes. We also get to hear a glimpse of Zegler’s spectacular singing voice, which will be put to use in Snow White’s classic songs – as well as some new tunes from Benj Pasek and Justin Paul – and see more of the seven dwarves, the CG rendering of whom caused a smattering of internet disapproval when the previous trailer was released. Will this retelling prove be the fairest of them all? Heigh-ho, heigh-ho, it’s off to the cinema we go to find out…</p>
+
+                <p>Snow White will be released on 21 March, 2025.</p>
+
+                <div class="img-news-extended"><img src="imgs/snow-white.avif"></div>
+
+                <a class="link-full-article" href="https://www.empireonline.com/movies/news/snow-white-trailer-rachel-zeglers-disney-princess-faces-gal-gadots-evil-queen/" target="_blank">Link to the full article...<a>
+            </div>
+        </div>
+
+        <div class="news">
+            <p>Doug Liman Confirms Tom Cruise Will Star In Supernatural Thriller Deeper</p>
+            <img src="imgs/Doug-Liman-Tom-Cruise.avif">
+            <p>Updated on 3rd December 2024 at 8.48am</p>
+            <div class="news-extended">
+                <i class="news-title-extended">Doug Liman Confirms Tom Cruise Will Star In Supernatural Thriller Deeper</i>
+
+                <p>At this point in his career, there is very little that Tom Cruise hasn't done. The Mission: Impossible action man has flown Boeing fighter jets, scaled the tallest building in the world, held his breath underwater for six whole minutes, rode a motorcycle off a cliff, and somehow convinced us that his 5'7" frame could still pass for man mountain Jack Reacher. But one thing the Hollywood icon has yet to do is dabble in the realms of horror (no, Interview With The Vampire doesn't count!). According to Deadline however, that's all set to change as Cruise looks set to team up with his American Made and _Edge Of Tomorrow_director Doug Liman on Deeper, a scary new supernatural thriller.</p>
+
+                <p>In a report sourced from Roger Friedman's Showbiz411 and corroborated by Deadline, the trade confirmed that Liman and Cruise are setting up shop at Warner Bros. to make their third (possibly fourth — there's still a SpaceX movie for the duo on their horizon) movie together. Friedman's own source for this exciting news is Liman himself who, at a recent New York screening of documentary Gaucho Gaucho, explained to the entertainment journalist that he's interested in making a "scary movie", noting how he had "never done one [...] and neither has Tom [Cruise]." As for what said scary movie entails, all we really know so far is that the film centres around an astronaut who encounters "a terrifying force" while on a deep dive into an unexplored trench.</p>
+
+                <p>Cruise and Liman are the latest duo who've tried to get Deeper moving, with Bradley Cooper and Kornél Mundruczó — as well as Idris Elba and Baltasar Kormákur — having previously been attached to the project, which has been floating around Hollywood since 2016 now. But with Cruise seemingly gearing up for his last Mission: Impossible rodeo with The Final Reckoning, and Liman coming in fresh off the one-two punch of this year's The Instigators and Road House, it looks like the movie may have found the dream pairing to finally bring it to our screens. If we see Tom Cruise in a spacesuit or wearing flippers and a snorkel anytime soon, then let's just say we'll have a pretty good idea what cinema's maddest lad is up to next. Yes, Edge Of Tomorrow 2: Live, Die, Repeat And Repeat — obvs!</p>
+
+                <div class="img-news-extended"><img src="imgs/Doug-Liman-Tom-Cruise.avif"></div>
+
+                <a class="link-full-article" href="https://www.empireonline.com/movies/news/doug-liman-confirms-tom-cruise-will-star-in-supernatural-thriller-deeper/" target="_blank">Link to the full article...<a>
+            </div>
+        </div>
+
+        <div class="news">
+            <p>Disney’s Moana 2 Sails To Record Breaking $386 Million Opening At The Global Box Office</p>
+            <img src="imgs/Moana-2.avif">
+            <p>Published on 2nd December 2024 at 9.06am</p>
+            <div class="news-extended">
+                <i class="news-title-extended">Disney’s Moana 2 Sails To Record Breaking $386 Million Opening At The Global Box Office</i>
+
+                <p>Make way, make way — Moana 2 is here at last! And not only is Walt Disney Animation's latest a bop-laden banger ('Can I Get A Chee Hoo' and 'Beyond' are already on heavy rotation at Empire HQ), but the continuing adventures of the House of Mouse's Polynesian princess and her demigod bestie Maui is also doing big business at the box office. Having released stateside just in time for Thanksgiving last Wednesday before finding its way into cinemas worldwide on Friday, David G. Derrick Jr., Jason Hand, and Dana Ledoux Miller's animated sequel has sailed to an eye-watering $386 million opening at the global box office.</p>
+
+                <p>With $221 million of the above figure coming from domestic ticket sales alone, Moana 2 has already outstripped Frozen II to become Disney's highest ever animation opening at the box office, taking almost as much in five days as 2016's Moana took in its entire US theatrical run ($248.7 million). What's more, the movie (which, it bears noting, at one stage was to be a TV series), has also enjoyed the highest five-day opening, Thanksgiving weekend, and Thanksgiving debut of all time domestically, while simultaneously proving no slouch on the world stage as it's made waves to become the third biggest opening ever for an animation — and for a musical — globally.</p>
+
+                <p>And it's not just Moana 2 enjoying the festive box office boom either, as the Glicked effect appears to be continuing apace, too. Jon M. Chu's musical Wicked Witch of the West origin story Wicked is continuing to defy gravity in the multiplexes as a $117.5 million Thanksgiving boost brought the Ariana Grande and Cynthia Erivo starrer's global cume to date up to $359 million, while Ridley Scott's spectacular swords-and-sandals sequel Gladiator II continues to perform well in the cinematic arena with a running total taking of $320 million. With Christmas right around the corner too, don't expect the box office to close on any of these three films any time soon, either.</p>
+
+                <div class="img-news-extended"><img src="imgs/Moana-2.avif"></div>
+
+                <a class="link-full-article" href="https://www.empireonline.com/movies/news/disneys-moana-2-sails-to-record-breaking-386-million-opening-at-the-global-box-office/" target="_blank">Link to the full article...<a>
+            </div>
         </div>
     </div>
 
-</footer>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/newsExtended.js"></script>
 
+    <footer class="footer">
+        
+        <p class="footer-text">Check out more horror films on IMDb:</p>
+        <a href="https://www.imdb.com/search/title/?title_type=feature&genres=horror" target="_blank" class="footer-link">
+        <svg id="home_img" class="ipc-logo" xmlns="http://www.w3.org/2000/svg" width="64" height="32" viewBox="0 0 64 32" version="1.1"><g fill="#F5C518"><rect x="0" y="0" width="100%" height="100%" rx="4"></rect></g><g transform="translate(8.000000, 7.000000)" fill="#000000" fill-rule="nonzero"><polygon points="0 18 5 18 5 0 0 0"></polygon><path d="M15.6725178,0 L14.5534833,8.40846934 L13.8582008,3.83502426 C13.65661,2.37009263 13.4632474,1.09175121 13.278113,0 L7,0 L7,18 L11.2416347,18 L11.2580911,6.11380679 L13.0436094,18 L16.0633571,18 L17.7583653,5.8517865 L17.7707076,18 L22,18 L22,0 L15.6725178,0 Z"></path><path d="M24,18 L24,0 L31.8045586,0 C33.5693522,0 35,1.41994415 35,3.17660424 L35,14.8233958 C35,16.5777858 33.5716617,18 31.8045586,18 L24,18 Z M29.8322479,3.2395236 C29.6339219,3.13233348 29.2545158,3.08072342 28.7026524,3.08072342 L28.7026524,14.8914865 C29.4312846,14.8914865 29.8796736,14.7604764 30.0478195,14.4865461 C30.2159654,14.2165858 30.3021941,13.486105 30.3021941,12.2871637 L30.3021941,5.3078959 C30.3021941,4.49404499 30.272014,3.97397442 30.2159654,3.74371416 C30.1599168,3.5134539 30.0348852,3.34671372 29.8322479,3.2395236 Z"></path><path d="M44.4299079,4.50685823 L44.749518,4.50685823 C46.5447098,4.50685823 48,5.91267586 48,7.64486762 L48,14.8619906 C48,16.5950653 46.5451816,18 44.749518,18 L44.4299079,18 C43.3314617,18 42.3602746,17.4736618 41.7718697,16.6682739 L41.4838962,17.7687785 L37,17.7687785 L37,0 L41.7843263,0 L41.7843263,5.78053556 C42.4024982,5.01015739 43.3551514,4.50685823 44.4299079,4.50685823 Z M43.4055679,13.2842155 L43.4055679,9.01907814 C43.4055679,8.31433946 43.3603268,7.85185468 43.2660746,7.63896485 C43.1718224,7.42607505 42.7955881,7.2893916 42.5316822,7.2893916 C42.267776,7.2893916 41.8607934,7.40047379 41.7816216,7.58767002 L41.7816216,9.01907814 L41.7816216,13.4207851 L41.7816216,14.8074788 C41.8721037,15.0130276 42.2602358,15.1274059 42.5316822,15.1274059 C42.8031285,15.1274059 43.1982131,15.0166981 43.281155,14.8074788 C43.3640968,14.5982595 43.4055679,14.0880581 43.4055679,13.2842155 Z"></path></g></svg></a>
+    </footer>
+</body>
 </html>

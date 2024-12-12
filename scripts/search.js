@@ -1,17 +1,19 @@
-const baseUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_average.desc&vote_count.gte=2000`;
-const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
-const imageDescriptionBaseUrl = 'https://image.tmdb.org/t/p/w1280';
+const baseUrlSearch = `https://api.themoviedb.org/3/discover/movie?api_key=${window.apiKey}&with_genres=27&sort_by=vote_average.desc&vote_count.gte=2000`;
+const imageBaseUrlSearch = 'https://image.tmdb.org/t/p/w500';
+const imageDescriptionBaseUrlSearch = 'https://image.tmdb.org/t/p/w1280';
 
-const fetchMovies = async () => {
-    const movieList = document.getElementById('movie-list');
-    movieList.innerHTML = '';
+const searchBar = document.getElementById('search-bar');
+
+const fetchMoviesSearch = async () => {
+    const movieListSearch = document.getElementById('film-list-search');
+    movieListSearch.innerHTML = '';
 
     let page = 1;
     let totalPages = 1;
 
     try {
         while (page <= totalPages) {
-            const url = `${baseUrl}&page=${page}`;
+            const url = `${baseUrlSearch}&page=${page}`;
             const res = await fetch(url);
             if (!res.ok) throw new Error('Network response was not okay ' + res.statusText);
 
@@ -20,7 +22,7 @@ const fetchMovies = async () => {
 
             for (const movie of data.results) {
                 const movieItem = document.createElement('div');
-                movieItem.classList.add('movie-item');
+                movieItem.classList.add('movie-item');  
 
                 const movieTitle = document.createElement('p');
                 movieTitle.textContent = movie.title;
@@ -42,7 +44,9 @@ const fetchMovies = async () => {
                 movieVotes.classList.add('movie-votes');
 
                 const movieImage = document.createElement('img');
-                movieImage.src = `${imageBaseUrl}${movie.poster_path}`;
+                movieImage.src = movie.backdrop_path
+                    ? `${imageBaseUrlSearch}${movie.backdrop_path}`
+                    : `${imageBaseUrlSearch}${movie.poster_path}`;
                 movieImage.alt = `${movie.title} poster`;
                 movieImage.onerror = () => {
                     movieImage.alt = 'Image not available';
@@ -50,8 +54,8 @@ const fetchMovies = async () => {
 
                 const movieImageDescription = document.createElement('img');
                 movieImageDescription.src = movie.backdrop_path
-                    ? `${imageDescriptionBaseUrl}${movie.backdrop_path}`
-                    : `${imageDescriptionBaseUrl}${movie.poster_path}`;
+                    ? `${imageDescriptionBaseUrlSearch}${movie.backdrop_path}`
+                    : `${imageDescriptionBaseUrlSearch}${movie.poster_path}`;
                 movieImageDescription.classList.add('movie-img-description');
 
                 // Fetch and add cast information
@@ -70,7 +74,7 @@ const fetchMovies = async () => {
                 // Append elements
                 movieItem.appendChild(movieImage);
                 movieItem.appendChild(movieTitle);
-                movieList.appendChild(movieItem);
+                movieListSearch.appendChild(movieItem);
 
                 movieDescriptionItem.appendChild(movieTitleDescription);
                 movieDescriptionItem.appendChild(movieImageDescription);
@@ -80,6 +84,18 @@ const fetchMovies = async () => {
                 movieDescriptionItem.appendChild(castList);
 
                 movieItem.appendChild(movieDescriptionItem);
+
+                // Show the list when the search bar is focused
+                searchBar.addEventListener('focus', () => {
+                    movieListSearch.classList.remove('hidden');
+                });
+
+                // Hide the list when clicking outside of it
+                document.addEventListener('click', (e) => {
+                    if (!movieListSearch.contains(e.target) && e.target !== searchBar) {
+                        movieListSearch.classList.add('hidden');
+                    }
+                });
 
 
                 movieImage.addEventListener('click', () => {
@@ -113,4 +129,19 @@ const fetchMovies = async () => {
 };
 
 // Call the function to fetch and display movies
-fetchMovies();
+fetchMoviesSearch();
+
+function searchFilm() {
+    let input = document.getElementById('search-bar').value;
+    input = input.toLowerCase();
+    let films = document.getElementsByClassName('movie-item');
+
+    for (i = 0; i < films.length; i++) {
+        if (!films[i].textContent.toLowerCase().includes(input)) {
+            films[i].style.display = "none";
+        }
+        else {
+            films[i].style.display = "list-item";
+        }
+    }
+}
