@@ -593,3 +593,27 @@ h3{
 .news-title-extended {
   font-size: 200%;
 }
+
+a:link {
+  color: rgb(202, 207, 233);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(139, 191, 255);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: rgb(255, 0, 0);
+  background-color: transparent;
+  text-decoration: underline;
+}
