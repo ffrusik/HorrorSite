@@ -83,8 +83,6 @@ body {
     z-index: 1030;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px dashed rgb(150, 106, 106);
-    border-top: 1px dashed rgb(150, 106, 106);
 }
 
 .navbar {
